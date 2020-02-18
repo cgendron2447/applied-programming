@@ -1,7 +1,7 @@
 require "forecast_io"
 
 # configure the Dark Sky API with your API key
-ForecastIO.api_key = "YOUR-API-KEY"
+ForecastIO.api_key = "423d101d0b874efebdfe642a8a22a00a"
 
 # do the heavy lifting, use Global Hub lat/long
 forecast = ForecastIO.forecast(42.0574063,-87.6722787).to_hash
@@ -21,4 +21,15 @@ forecast = ForecastIO.forecast(42.0574063,-87.6722787).to_hash
 # A high temperature of 32.51 and Partly cloudy throughout the day.
 # A high temperature of 40.42 and Clear throughout the day.
 # A high temperature of 23.21 and Overcast throughout the day.
-# A high temperature of 29.12 and Clear throughout the day.
+# 
+
+current_temp = forecast["currently"]["apparentTemperature"]
+current_conditions = forecast["currently"]["summary"]
+
+puts "In Chicago, it is currently #{current_temp} degrees and #{current_conditions}"
+
+for daily_forecast in forecast["daily"]["data"]
+    puts "A high temperature of #{daily_forecast["temperatureHigh"]} and #{daily_forecast["summary"]}"
+end
+
+# loop through 'day' and also bring along the high temperature and the summary of the day's conditions.... 
