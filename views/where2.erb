@@ -25,13 +25,16 @@
     <div class="container mt-5">
       <h1>Where 2?</h1>
       <iframe
-        width="600"
-        height="450"
+        width="900"
+        height="650"
         frameborder="0" style="border:0"
         src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCtovsQvkIUWlNqtYwXY87gEd4ZSmJEhMw
-          &q=42.0574063,-87.6722787&zoom=6" allowfullscreen>
+          &q=<%=@lat%>,<%=@long%>&zoom=3" allowfullscreen>
       </iframe>
-    </div>
+      <p>
+        <a href="/" class="btn btn-success">Do it Again!</a>
+      </p>
+        </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
